@@ -11,9 +11,9 @@ import java.text.DecimalFormat;
  */
 public class ConvertUtils {
     /**
-     * 分转元
+     * china: fen to yuan
      *
-     * @param fen 分
+     * @param fen fen
      * @return
      */
     public static BigDecimal fen2Yuan(Integer fen) {
@@ -22,7 +22,7 @@ public class ConvertUtils {
     }
 
     /**
-     * 转换为字符串
+     * china: get yuan string
      *
      * @param number
      * @return
@@ -34,7 +34,7 @@ public class ConvertUtils {
     }
 
     /**
-     * 分转元（返回字符串）
+     * china: fen to yuan
      *
      * @param fen
      * @return

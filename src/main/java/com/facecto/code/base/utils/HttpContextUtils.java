@@ -16,12 +16,20 @@ public class HttpContextUtils {
         return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
     }
 
+    /**
+     * get http requet domain
+     * @return
+     */
     public static String getDomain() {
         HttpServletRequest request = getHttpServletRequest();
         StringBuffer url = request.getRequestURL();
         return url.delete(url.length() - request.getRequestURI().length(), url.length()).toString();
     }
 
+    /**
+     * get http request origin
+     * @return
+     */
     public static String getOrigin() {
         HttpServletRequest request = getHttpServletRequest();
         return request.getHeader("Origin");

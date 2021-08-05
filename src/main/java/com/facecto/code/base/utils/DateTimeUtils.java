@@ -36,7 +36,7 @@ public class DateTimeUtils {
     public final static String DATE_TIME_STRING_PATTERN = "yyyyMMddHHmmss";
 
     /**
-     * 获得当前时间戳--毫秒
+     * get milliseconds now
      *
      * @return
      */
@@ -45,7 +45,7 @@ public class DateTimeUtils {
     }
 
     /**
-     * 获得当前时间戳-秒
+     * get seconds now
      *
      * @return
      */
@@ -55,7 +55,7 @@ public class DateTimeUtils {
 
 
     /**
-     * 获得指定时间时间戳--毫秒
+     * get milliseconds by local datetime
      *
      * @param time
      * @return
@@ -66,7 +66,7 @@ public class DateTimeUtils {
 
 
     /**
-     * 获得指定时间时间戳--秒
+     * get seconds by local datetime
      *
      * @param time
      * @return
@@ -87,7 +87,7 @@ public class DateTimeUtils {
     }
 
     /**
-     * 根据格式返回
+     * return by format
      *
      * @param date
      * @param pattern
@@ -103,7 +103,7 @@ public class DateTimeUtils {
 
 
     /**
-     * 字符串转换成日期
+     * string convert date
      *
      * @param strDate
      * @param pattern
@@ -119,10 +119,10 @@ public class DateTimeUtils {
     }
 
     /**
-     * 根据周数，获取开始日期、结束日期
+     * get the begin date and end date from week number
      *
-     * @param week 周期  0本周，-1上周，-2上上周，1下周，2下下周
-     * @return 返回date[0]开始日期、date[1]结束日期
+     * @param week week  0= this week，-1= last week，-2= two weeks ago，1= next week，2= week after next
+     * @return date[0]= begin date、date[1]= end date
      */
     public static Date[] getWeekStartAndEnd(int week) {
         DateTime dateTime = new DateTime();
@@ -135,10 +135,10 @@ public class DateTimeUtils {
     }
 
     /**
-     * 对日期的【秒】进行加/减
+     * add or minus second
      *
-     * @param date    日期
-     * @param seconds 秒数，负数为减
+     * @param date    date
+     * @param seconds second is number, it can be negative number
      * @return
      */
     public static Date addDateSeconds(Date date, int seconds) {
@@ -147,11 +147,11 @@ public class DateTimeUtils {
     }
 
     /**
-     * 对日期的【分钟】进行加/减
+     * add or minus minute
      *
-     * @param date    日期
-     * @param minutes 分钟数，负数为减
-     * @return 加/减几分钟后的日期
+     * @param date    date
+     * @param minutes minute is number, it can be negative number
+     * @return
      */
     public static Date addDateMinutes(Date date, int minutes) {
         DateTime dateTime = new DateTime(date);
@@ -159,11 +159,11 @@ public class DateTimeUtils {
     }
 
     /**
-     * 对日期的【小时】进行加/减
+     * add or minus hour
      *
-     * @param date  日期
-     * @param hours 小时数，负数为减
-     * @return 加/减几小时后的日期
+     * @param date  date
+     * @param hours hour is number, it can be negative number
+     * @return
      */
     public static Date addDateHours(Date date, int hours) {
         DateTime dateTime = new DateTime(date);
@@ -171,11 +171,11 @@ public class DateTimeUtils {
     }
 
     /**
-     * 对日期的【天】进行加/减
+     * add or minus day
      *
-     * @param date 日期
-     * @param days 天数，负数为减
-     * @return 加/减几天后的日期
+     * @param date date
+     * @param days day is number, it can be negative number
+     * @return
      */
     public static Date addDateDays(Date date, int days) {
         DateTime dateTime = new DateTime(date);
@@ -183,11 +183,11 @@ public class DateTimeUtils {
     }
 
     /**
-     * 对日期的【周】进行加/减
+     * add or minus week
      *
-     * @param date  日期
-     * @param weeks 周数，负数为减
-     * @return 加/减几周后的日期
+     * @param date  date
+     * @param weeks week is number, it can be negative number
+     * @return
      */
     public static Date addDateWeeks(Date date, int weeks) {
         DateTime dateTime = new DateTime(date);
@@ -195,11 +195,11 @@ public class DateTimeUtils {
     }
 
     /**
-     * 对日期的【月】进行加/减
+     * add or minus month
      *
-     * @param date   日期
-     * @param months 月数，负数为减
-     * @return 加/减几月后的日期
+     * @param date   date
+     * @param months month is number, it can be negative number
+     * @return
      */
     public static Date addDateMonths(Date date, int months) {
         DateTime dateTime = new DateTime(date);
@@ -207,11 +207,11 @@ public class DateTimeUtils {
     }
 
     /**
-     * 对日期的【年】进行加/减
+     * add or minus year
      *
-     * @param date  日期
-     * @param years 年数，负数为减
-     * @return 加/减几年后的日期
+     * @param date  date
+     * @param years year is number，it can be negative number
+     * @return
      */
     public static Date addDateYears(Date date, int years) {
         DateTime dateTime = new DateTime(date);
@@ -219,7 +219,7 @@ public class DateTimeUtils {
     }
 
     /**
-     * 将时间转换为 RFC3339
+     * convert time to RFC3339
      *
      * @param date
      * @return 2021-01-29T17:05:58+08:00
@@ -231,9 +231,9 @@ public class DateTimeUtils {
     }
 
     /**
-     * 将时间字符串转为 RFC3339
+     * convert time to RFC3339 format
      *
-     * @param datetime 输入格式为：2021-01-29 17:05:58
+     * @param datetime format：2021-01-29 17:05:58
      * @return
      */
     public static String getRFC3339(String datetime) {

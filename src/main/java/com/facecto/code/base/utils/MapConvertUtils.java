@@ -13,12 +13,24 @@ import java.util.Map;
  */
 public class MapConvertUtils {
 
-    public static HashMap<String, Object> getMapAndPub(String key, Object value) {
+    /**
+     * get map
+     * @param key
+     * @param value
+     * @return
+     */
+    public static HashMap<String, Object> getMap(String key, Object value) {
         HashMap<String, Object> map = new HashMap<>();
         map.put(key, value);
         return map;
     }
 
+    /**
+     * get boolean value from map
+     * @param map
+     * @param key
+     * @return
+     */
     public static Boolean getBoolValue(Map<String, Object> map, String key) {
         if (map.get(key) != null) {
             return Boolean.parseBoolean(map.get(key).toString());
@@ -26,6 +38,12 @@ public class MapConvertUtils {
         return null;
     }
 
+    /**
+     * get string from map
+     * @param map
+     * @param key
+     * @return
+     */
     public static String getStringValue(Map<String, Object> map, String key) {
         if (map.get(key) != null) {
             return map.get(key).toString();
@@ -33,6 +51,12 @@ public class MapConvertUtils {
         return null;
     }
 
+    /**
+     * get integer value from map
+     * @param map
+     * @param key
+     * @return
+     */
     public static Integer getIntegerValue(Map<String, Object> map, String key) {
         if (map.get(key) != null) {
             return Integer.parseInt(map.get(key).toString());
@@ -40,6 +64,12 @@ public class MapConvertUtils {
         return null;
     }
 
+    /**
+     * get double value from map
+     * @param map
+     * @param key
+     * @return
+     */
     public static Double getDoubleValue(Map<String, Object> map, String key) {
         if (map.get(key) != null) {
             return Double.parseDouble(map.get(key).toString());
@@ -47,6 +77,12 @@ public class MapConvertUtils {
         return null;
     }
 
+    /**
+     * get float value from map
+     * @param map
+     * @param key
+     * @return
+     */
     public static Float getFloatValue(Map<String, Object> map, String key) {
         if (map.get(key) != null) {
             return Float.parseFloat(map.get(key).toString());
@@ -54,6 +90,12 @@ public class MapConvertUtils {
         return null;
     }
 
+    /**
+     * get bigdecimal value from map
+     * @param map
+     * @param key
+     * @return
+     */
     public static BigDecimal getBigDecimalValue(Map<String, Object> map, String key) {
         if (map.get(key) != null) {
             return new BigDecimal(map.get(key).toString());
@@ -61,6 +103,12 @@ public class MapConvertUtils {
         return null;
     }
 
+    /**
+     * object convert to map
+     * @param bean
+     * @param <T>
+     * @return
+     */
     public static <T> Map<String, Object> conversionMap(T bean) {
         Map<String, Object> map = new HashMap<>();
         if (bean != null) {

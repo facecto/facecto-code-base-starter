@@ -10,6 +10,12 @@ import java.util.stream.Collectors;
  * @date 2021/6/25
  */
 public class ListUtils {
+    /**
+     * check list1 and list2 has equal
+     * @param list1
+     * @param list2
+     * @return
+     */
     public static boolean hasEqual(List<Integer> list1, List<Integer> list2){
         List<Integer> collect1 = list1.stream().sorted(Comparator.comparing(a -> a)).collect(Collectors.toList());
         List<Integer> collect2 = list2.stream().sorted(Comparator.comparing(a -> a)).collect(Collectors.toList());

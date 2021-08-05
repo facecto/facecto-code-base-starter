@@ -6,8 +6,7 @@
 
     <groupId>com.facecto.code</groupId>
     <artifactId>facecto-code-base-starter</artifactId>
-    <version>1.0</version>
-    <packaging>pom</packaging>
+    <version>1.0.1</version>
     <name>facecto-code-base-starter</name>
     <url>https://github.com/facecto/facecto-code-base-starter</url>
     <description>A basic library that encapsulates standard return information.</description>

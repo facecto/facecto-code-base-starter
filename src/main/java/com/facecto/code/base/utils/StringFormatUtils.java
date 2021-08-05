@@ -7,8 +7,9 @@ package com.facecto.code.base.utils;
  */
 public class StringFormatUtils {
     /**
-     * 中国手机号屏蔽中间四位
-     * @param tel 11位屏蔽
+     * china telphone convert
+     * example: 13912345678 to 139****5678
+     * @param tel length
      * @return
      */
     public static String getTel(String tel){
@@ -19,8 +20,9 @@ public class StringFormatUtils {
     }
 
     /**
-     * 中国身份证屏蔽中间位数
-     * @param IdNo 18位和15位屏蔽
+     * china id convert
+     * example: 350101202105201234 to 3501**2021****1234
+     * @param IdNo length 18 or 15
      * @return
      */
     public static String getIdNo(String IdNo){
