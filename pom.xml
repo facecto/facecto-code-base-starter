@@ -6,10 +6,10 @@
 
     <groupId>com.facecto.code</groupId>
     <artifactId>facecto-code-base-starter</artifactId>
-    <version>1.0.2</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
 
-    <name>${artifactId}</name>
+    <name> ${project.artifactId} </name>
     <url>https://github.com/facecto/facecto-code-base-starter</url>
     <description>A standard result information.</description>
 
@@ -60,12 +60,6 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <scope>provided</scope>
-            <version>5.3.9</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <scope>provided</scope>
@@ -80,17 +74,6 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.12.0</version>
-        </dependency>
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>2.10.10</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <scope>provided</scope>
-            <version>5.3.9</version>
         </dependency>
     </dependencies>
 

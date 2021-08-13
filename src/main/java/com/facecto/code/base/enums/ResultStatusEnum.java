@@ -1,16 +1,16 @@
 package com.facecto.code.base.enums;
 
 /**
- * @author Jon So
- * @author page https://cto.pub
- * @date 2021/5/01
+ * The enum for result status
+ * @author Jon So, https://cto.pub, https://github.com/facecto
+ * @version v1.1.0 (2021/08/08)
  */
-public enum ResultStatus {
+public enum ResultStatusEnum {
     SUCCESS(0),
     FAIL(1);
     private int code;
 
-    ResultStatus(int code) {
+    ResultStatusEnum(int code) {
         this.code = code;
     }
 
