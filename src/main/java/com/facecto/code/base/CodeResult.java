@@ -2,6 +2,7 @@ package com.facecto.code.base;
 
 import com.facecto.code.base.enums.ResultMessageEnum;
 import com.facecto.code.base.enums.ResultStatusEnum;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.apache.http.HttpStatus;
@@ -15,6 +16,7 @@ import java.io.Serializable;
  */
 @Data
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CodeResult<T> implements Serializable {
     private static final long serialVersionUID = 6374486752803150412L;
     private T data;
