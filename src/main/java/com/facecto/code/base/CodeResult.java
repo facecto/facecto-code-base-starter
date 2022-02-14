@@ -12,7 +12,7 @@ import java.io.Serializable;
 /**
  * The basic return information
  * @author Jon So, https://cto.pub, https://github.com/facecto
- * @version v1.1.0 (2021/08/08)
+ * @version v1.1.2 (2022/02/01)
  */
 @Data
 @AllArgsConstructor
@@ -23,17 +23,26 @@ public class CodeResult<T> implements Serializable {
     private Integer code;
     private String message;
     private ResultStatusEnum status;
+    private Long total;
+    private Long page;
+    private Long pageSize;
 
     public CodeResult() {
         this.code = 0;
         this.message = ResultMessageEnum.SYSTEM_OK.getValue();
         this.status = ResultStatusEnum.SUCCESS;
+        this.total =null;
+        this.page =null;
+        this.pageSize =null;
     }
 
     private CodeResult(Integer code, String message, ResultStatusEnum status) {
         this.code = code;
         this.message = message;
         this.status = status;
+        this.total =null;
+        this.page =null;
+        this.pageSize =null;
     }
 
     private CodeResult(Integer code, String message, ResultStatusEnum status, T data) {
@@ -41,6 +50,19 @@ public class CodeResult<T> implements Serializable {
         this.message = message;
         this.status = status;
         this.data = data;
+        this.total =null;
+        this.page =null;
+        this.pageSize =null;
+    }
+
+    private CodeResult(Integer code, String message, ResultStatusEnum status, T data, long total, long page, long pageSize) {
+        this.code = code;
+        this.message = message;
+        this.status = status;
+        this.data = data;
+        this.total= total;
+        this.page = page;
+        this.pageSize = pageSize;
     }
 
     /**
@@ -101,6 +123,20 @@ public class CodeResult<T> implements Serializable {
      */
     public static <T> CodeResult<T> ok(String message, T data) {
         return new CodeResult(0, message, ResultStatusEnum.SUCCESS, data);
+    }
+
+    /**
+     * Get CodeResult for message and data with page info
+     * @param message message
+     * @param data data
+     * @param total total num
+     * @param page page num
+     * @param pageSize pagesize
+     * @param <T> data
+     * @return CodeResult
+     */
+    public static <T> CodeResult<T> ok(String message, T data, long total, long page, long pageSize) {
+        return new CodeResult(0, message, ResultStatusEnum.SUCCESS, data, total, page,pageSize);
     }
 
     /**

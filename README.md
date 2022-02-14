@@ -10,7 +10,18 @@ facecto-code-base-starter is A standard result and exception information.
   <version>1.1.0</version>
 </dependency>
 ```
-## Step 2 : No more step. Enjoy it.
+## Step 2 ：To turn on global error configuration, use the following annotation.
+
+```java
+
+@EnableCodeException
+public class SpringBootApplication{
+    ...
+}
+
+```
+
+## Step 3 : No more step. Enjoy it.
 
 # About Jon So
 I‘m an ordinary developer, likes mountains and rivers, likes code.
@@ -20,3 +31,5 @@ thanks.
 # About facecto.com
 https://facecto.com
 
+# Document update time
+2020-02-14

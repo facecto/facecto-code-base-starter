@@ -1,15 +1,17 @@
 package com.facecto.code.base;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
  * the basic exception
  * @author Jon So, https://cto.pub, https://facecto.com, https://github.com/facecto
- * @version v1.1.0 (2021/8/08)
+ * @version v1.1.2 (2022/02/01)
  */
 @Getter
 @Setter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CodeException extends RuntimeException {
     private static final long serialVersionUID = 4056355647005042739L;
     private String message;

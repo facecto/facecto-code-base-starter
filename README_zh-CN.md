@@ -11,7 +11,16 @@ facecto-code-base-starter 封装了标准返回信息和错误信息。
   <version>1.1.0</version>
 </dependency>
 ```
-## 步骤 2 : 没有更多步骤了
+## 步骤 2 : 如果需要使用全局错误，请使用以下注解：
+```java
+
+@EnableCodeException
+public class SpringBootApplication{
+    ...
+}
+
+```
+## 步骤 3 : 没有更多步骤了
 
 # 关于 Jon So
 希望能和你做朋友！我的站点https://facecto.com
@@ -19,3 +28,5 @@ facecto-code-base-starter 封装了标准返回信息和错误信息。
 # 关于 facecto.com
 https://facecto.com
 
+# 文档更新时间
+2020-02-14
