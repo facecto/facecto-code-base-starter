@@ -6,6 +6,7 @@ import lombok.Setter;
 
 /**
  * the basic exception
+ *
  * @author Jon So, https://cto.pub, https://facecto.com, https://github.com/facecto
  * @version v1.1.2 (2022/02/01)
  */
@@ -20,6 +21,7 @@ public class CodeException extends RuntimeException {
 
     /**
      * CodeException with message
+     *
      * @param message message
      */
     public CodeException(String message) {
@@ -29,8 +31,9 @@ public class CodeException extends RuntimeException {
 
     /**
      * CodeException with message, throwable
+     *
      * @param message message
-     * @param e throwable
+     * @param e       throwable
      */
     public CodeException(String message, Throwable e) {
         super(message, e);
@@ -39,8 +42,9 @@ public class CodeException extends RuntimeException {
 
     /**
      * CodeException with message, code
+     *
      * @param message message
-     * @param code error code
+     * @param code    error code
      */
     public CodeException(String message, int code) {
         super(message);
@@ -50,9 +54,10 @@ public class CodeException extends RuntimeException {
 
     /**
      * CodeException with message, code, throwable
+     *
      * @param message message
-     * @param code error code
-     * @param e throwable
+     * @param code    error code
+     * @param e       throwable
      */
     public CodeException(String message, int code, Throwable e) {
         super(message, e);

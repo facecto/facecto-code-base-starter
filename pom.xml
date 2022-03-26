@@ -6,7 +6,7 @@
 
     <groupId>com.facecto.code</groupId>
     <artifactId>facecto-code-base-starter</artifactId>
-    <version>1.1.2</version>
+    <version>1.1.4</version>
     <packaging>jar</packaging>
 
     <name> ${project.artifactId} </name>
@@ -63,7 +63,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <scope>provided</scope>
-            <version>2.5.3</version>
+            <version>2.5.9</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>

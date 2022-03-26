@@ -11,6 +11,7 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.NoHandlerFoundException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -19,6 +20,7 @@ import java.text.SimpleDateFormat;
 
 /**
  * CodeException handler resolver
+ *
  * @author Jon So, https://cto.pub, https://facecto.com, https://github.com/facecto
  * @version v1.1.0 (2021/8/08)
  */
@@ -36,10 +38,11 @@ public class CodeExceptionHandlerResolver implements HandlerExceptionResolver {
 
     /**
      * resolveException
-     * @param httpServletRequest HttpServletRequest
+     *
+     * @param httpServletRequest  HttpServletRequest
      * @param httpServletResponse HttpServletResponse
-     * @param o object
-     * @param e exception
+     * @param o                   object
+     * @param e                   exception
      * @return ModelAndView
      */
     @Override

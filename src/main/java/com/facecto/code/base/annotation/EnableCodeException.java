@@ -7,6 +7,7 @@ import java.lang.annotation.*;
 
 /**
  * Annotation EnableCodeException
+ *
  * @author Jon So, https://cto.pub, https://facecto.com, https://github.com/facecto
  * @version v1.1.2 (2022/02/01)
  */

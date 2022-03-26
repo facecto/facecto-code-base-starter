@@ -11,8 +11,9 @@ import java.io.Serializable;
 
 /**
  * The basic return information
+ *
  * @author Jon So, https://cto.pub, https://github.com/facecto
- * @version v1.1.2 (2022/02/01)
+ * @version v1.1.3 (2022/03/20)
  */
 @Data
 @AllArgsConstructor
@@ -31,18 +32,18 @@ public class CodeResult<T> implements Serializable {
         this.code = 0;
         this.message = ResultMessageEnum.SYSTEM_OK.getValue();
         this.status = ResultStatusEnum.SUCCESS;
-        this.total =null;
-        this.page =null;
-        this.pageSize =null;
+        this.total = null;
+        this.page = null;
+        this.pageSize = null;
     }
 
     private CodeResult(Integer code, String message, ResultStatusEnum status) {
         this.code = code;
         this.message = message;
         this.status = status;
-        this.total =null;
-        this.page =null;
-        this.pageSize =null;
+        this.total = null;
+        this.page = null;
+        this.pageSize = null;
     }
 
     private CodeResult(Integer code, String message, ResultStatusEnum status, T data) {
@@ -50,9 +51,9 @@ public class CodeResult<T> implements Serializable {
         this.message = message;
         this.status = status;
         this.data = data;
-        this.total =null;
-        this.page =null;
-        this.pageSize =null;
+        this.total = null;
+        this.page = null;
+        this.pageSize = null;
     }
 
     private CodeResult(Integer code, String message, ResultStatusEnum status, T data, long total, long page, long pageSize) {
@@ -60,13 +61,14 @@ public class CodeResult<T> implements Serializable {
         this.message = message;
         this.status = status;
         this.data = data;
-        this.total= total;
+        this.total = total;
         this.page = page;
         this.pageSize = pageSize;
     }
 
     /**
      * Get CodeResult while error
+     *
      * @param <T> the type of target
      * @return CodeResult
      */
@@ -76,8 +78,9 @@ public class CodeResult<T> implements Serializable {
 
     /**
      * Get CodeResult while error
+     *
      * @param message error message
-     * @param <T> the type of target
+     * @param <T>     the type of target
      * @return CodeResult
      */
     public static <T> CodeResult<T> error(String message) {
@@ -86,9 +89,10 @@ public class CodeResult<T> implements Serializable {
 
     /**
      * Get CodeResult while error
-     * @param code error code
+     *
+     * @param code    error code
      * @param message error message
-     * @param <T> the type of target
+     * @param <T>     the type of target
      * @return CodeResult
      */
     public static <T> CodeResult<T> error(int code, String message) {
@@ -97,6 +101,7 @@ public class CodeResult<T> implements Serializable {
 
     /**
      * Get CodeResult just ok
+     *
      * @param <T> the type of target
      * @return CodeResult
      */
@@ -106,8 +111,9 @@ public class CodeResult<T> implements Serializable {
 
     /**
      * Get CodeResult only one param message
+     *
      * @param message message
-     * @param <T> the type of target
+     * @param <T>     the type of target
      * @return CodeResult
      */
     public static <T> CodeResult<T> ok(String message) {
@@ -116,9 +122,10 @@ public class CodeResult<T> implements Serializable {
 
     /**
      * Get CodeResult for message and data
+     *
      * @param message message
-     * @param data data body
-     * @param <T> the type of target
+     * @param data    data body
+     * @param <T>     the type of target
      * @return CodeResult
      */
     public static <T> CodeResult<T> ok(String message, T data) {
@@ -127,26 +134,65 @@ public class CodeResult<T> implements Serializable {
 
     /**
      * Get CodeResult for message and data with page info
-     * @param message message
-     * @param data data
-     * @param total total num
-     * @param page page num
+     *
+     * @param message  message
+     * @param data     data
+     * @param total    total num
+     * @param page     page num
      * @param pageSize pagesize
-     * @param <T> data
+     * @param <T>      data
      * @return CodeResult
      */
     public static <T> CodeResult<T> ok(String message, T data, long total, long page, long pageSize) {
-        return new CodeResult(0, message, ResultStatusEnum.SUCCESS, data, total, page,pageSize);
+        return new CodeResult(0, message, ResultStatusEnum.SUCCESS, data, total, page, pageSize);
     }
 
     /**
      * Get CodeResult only one param with data body
+     *
      * @param data data body
-     * @param <T> the type of target
+     * @param <T>  the type of target
      * @return CodeResult
      */
     public static <T> CodeResult<T> okx(T data) {
         return new CodeResult(0, ResultMessageEnum.SYSTEM_SUCCESS.getValue(), ResultStatusEnum.SUCCESS, data);
+    }
+
+    /**
+     * Get CodeResult with data body and code
+     *
+     * @param data body
+     * @param code code
+     * @param <T>  the type of target
+     * @return CodeResult
+     */
+    public static <T> CodeResult<T> okx(T data, int code) {
+        return new CodeResult(code, ResultMessageEnum.SYSTEM_SUCCESS.getValue(), ResultStatusEnum.SUCCESS, data);
+    }
+
+    /**
+     * Get CodeResult with data body and message
+     *
+     * @param data    body
+     * @param message message
+     * @param <T>     the type of target
+     * @return CodeResult
+     */
+    public static <T> CodeResult<T> okx(T data, String message) {
+        return new CodeResult(0, message, ResultStatusEnum.SUCCESS, data);
+    }
+
+    /**
+     * Get CodeResult with data body, code, message
+     *
+     * @param data    body
+     * @param code    code
+     * @param message message
+     * @param <T>     the type of target
+     * @return CodeResult
+     */
+    public static <T> CodeResult<T> okx(T data, int code, String message) {
+        return new CodeResult(code, message, ResultStatusEnum.SUCCESS, data);
     }
 
 }
