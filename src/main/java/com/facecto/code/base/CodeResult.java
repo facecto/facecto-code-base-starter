@@ -12,7 +12,7 @@ import java.io.Serializable;
 /**
  * The basic return information
  *
- * @author Jon So, https://cto.pub, https://github.com/facecto
+ * @author Jon So, https://facecto.com, https://github.com/facecto
  * @version v1.1.3 (2022/03/20)
  */
 @Data
@@ -23,6 +23,7 @@ public class CodeResult<T> implements Serializable {
     private T data;
     private Integer code;
     private String message;
+    private String errorInfo;
     private ResultStatusEnum status;
     private Long total;
     private Long page;
@@ -31,6 +32,7 @@ public class CodeResult<T> implements Serializable {
     public CodeResult() {
         this.code = 0;
         this.message = ResultMessageEnum.SYSTEM_OK.getValue();
+        this.errorInfo = null;
         this.status = ResultStatusEnum.SUCCESS;
         this.total = null;
         this.page = null;
@@ -40,6 +42,17 @@ public class CodeResult<T> implements Serializable {
     private CodeResult(Integer code, String message, ResultStatusEnum status) {
         this.code = code;
         this.message = message;
+        this.errorInfo = null;
+        this.status = status;
+        this.total = null;
+        this.page = null;
+        this.pageSize = null;
+    }
+
+    private CodeResult(Integer code, String message, String errorInfo, ResultStatusEnum status) {
+        this.code = code;
+        this.message = message;
+        this.errorInfo = errorInfo;
         this.status = status;
         this.total = null;
         this.page = null;
@@ -49,6 +62,18 @@ public class CodeResult<T> implements Serializable {
     private CodeResult(Integer code, String message, ResultStatusEnum status, T data) {
         this.code = code;
         this.message = message;
+        this.errorInfo = null;
+        this.status = status;
+        this.data = data;
+        this.total = null;
+        this.page = null;
+        this.pageSize = null;
+    }
+
+    private CodeResult(Integer code, String message, String errorInfo, ResultStatusEnum status, T data) {
+        this.code = code;
+        this.message = message;
+        this.errorInfo = errorInfo;
         this.status = status;
         this.data = data;
         this.total = null;
@@ -90,6 +115,18 @@ public class CodeResult<T> implements Serializable {
     /**
      * Get CodeResult while error
      *
+     * @param message   message error message
+     * @param errorInfo error info
+     * @param <T>       the type of target
+     * @return CodeResult
+     */
+    public static <T> CodeResult<T> error(String message, String errorInfo) {
+        return new CodeResult(HttpStatus.SC_INTERNAL_SERVER_ERROR, message, errorInfo, ResultStatusEnum.FAIL);
+    }
+
+    /**
+     * Get CodeResult while error
+     *
      * @param code    error code
      * @param message error message
      * @param <T>     the type of target
@@ -97,6 +134,19 @@ public class CodeResult<T> implements Serializable {
      */
     public static <T> CodeResult<T> error(int code, String message) {
         return new CodeResult(code, message, ResultStatusEnum.FAIL);
+    }
+
+    /**
+     * Get CodeResult while error
+     *
+     * @param code      error code
+     * @param message   error message
+     * @param errorInfo error info
+     * @param <T>       the type of target
+     * @return CodeResult
+     */
+    public static <T> CodeResult<T> error(int code, String message, String errorInfo) {
+        return new CodeResult(code, message, errorInfo, ResultStatusEnum.FAIL);
     }
 
     /**

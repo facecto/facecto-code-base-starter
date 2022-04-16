@@ -3,11 +3,12 @@ package com.facecto.code.base;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.http.HttpStatus;
 
 /**
  * the basic exception
  *
- * @author Jon So, https://cto.pub, https://facecto.com, https://github.com/facecto
+ * @author Jon So, https://facecto.com, https://github.com/facecto
  * @version v1.1.2 (2022/02/01)
  */
 @Getter
@@ -16,8 +17,9 @@ import lombok.Setter;
 public class CodeException extends RuntimeException {
     private static final long serialVersionUID = 4056355647005042739L;
     private String message;
+    private String errorInfo;
     private String status;
-    private Integer code = 500;
+    private Integer code = HttpStatus.SC_INTERNAL_SERVER_ERROR;
 
     /**
      * CodeException with message
@@ -27,6 +29,19 @@ public class CodeException extends RuntimeException {
     public CodeException(String message) {
         super(message);
         this.message = message;
+        this.errorInfo = null;
+    }
+
+    /**
+     * CodeException with message, errorInfo
+     *
+     * @param message   message
+     * @param errorInfo errorInfo
+     */
+    public CodeException(String message, String errorInfo) {
+        super(message);
+        this.message = message;
+        this.errorInfo = errorInfo;
     }
 
     /**
@@ -38,6 +53,7 @@ public class CodeException extends RuntimeException {
     public CodeException(String message, Throwable e) {
         super(message, e);
         this.message = message;
+        this.errorInfo = null;
     }
 
     /**
@@ -49,6 +65,21 @@ public class CodeException extends RuntimeException {
     public CodeException(String message, int code) {
         super(message);
         this.message = message;
+        this.errorInfo = null;
+        this.code = code;
+    }
+
+    /**
+     * CodeException with message, errorInfo, code
+     *
+     * @param message   message
+     * @param errorInfo error info
+     * @param code      error code
+     */
+    public CodeException(String message, String errorInfo, int code) {
+        super(message);
+        this.message = message;
+        this.errorInfo = errorInfo;
         this.code = code;
     }
 
@@ -62,6 +93,22 @@ public class CodeException extends RuntimeException {
     public CodeException(String message, int code, Throwable e) {
         super(message, e);
         this.message = message;
+        this.errorInfo = null;
+        this.code = code;
+    }
+
+    /**
+     * CodeException with message, errorInfo, code, throwable
+     *
+     * @param message   message
+     * @param errorInfo error info
+     * @param code      code
+     * @param e         throwable
+     */
+    public CodeException(String message, String errorInfo, int code, Throwable e) {
+        super(message, e);
+        this.message = message;
+        this.errorInfo = errorInfo;
         this.code = code;
     }
 

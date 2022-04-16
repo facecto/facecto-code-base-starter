@@ -4,6 +4,7 @@ import com.facecto.code.base.CodeException;
 import com.facecto.code.base.CodeResult;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
@@ -21,7 +22,7 @@ import java.text.SimpleDateFormat;
 /**
  * CodeException handler resolver
  *
- * @author Jon So, https://cto.pub, https://facecto.com, https://github.com/facecto
+ * @author Jon So, https://facecto.com, https://github.com/facecto
  * @version v1.1.0 (2021/8/08)
  */
 @Component
@@ -47,11 +48,14 @@ public class CodeExceptionHandlerResolver implements HandlerExceptionResolver {
      */
     @Override
     public ModelAndView resolveException(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) {
-        String message = e.getMessage();
-        Integer code = 500;
+        String message = e.getLocalizedMessage();
+        String errorInfo = e.getLocalizedMessage();
+        Integer code = HttpStatus.SC_INTERNAL_SERVER_ERROR;
         if (e instanceof CodeException) {
-            CodeException cc = (CodeException) e;
-            code = cc.getCode();
+            CodeException ce = (CodeException) e;
+            code = ce.getCode();
+            errorInfo = ce.getErrorInfo();
+            message = ce.getMessage();
         }
 
         if (o instanceof HandlerMethod) {
@@ -67,7 +71,6 @@ public class CodeExceptionHandlerResolver implements HandlerExceptionResolver {
         } else if (e instanceof HttpMediaTypeNotSupportedException) {
             message = "Request type is not supported.";
         }
-        e.printStackTrace();
         httpServletResponse.setCharacterEncoding(StandardCharsets.UTF_8.name());
         httpServletResponse.setContentType(MediaType.APPLICATION_JSON_VALUE);
 
@@ -75,7 +78,7 @@ public class CodeExceptionHandlerResolver implements HandlerExceptionResolver {
             httpServletResponse.getWriter()
                     .write(
                             OBJECT_MAPPER.writeValueAsString(
-                                    CodeResult.error(code, message)
+                                    CodeResult.error(code, message, errorInfo)
                             )
                     );
         } catch (IOException ex) {

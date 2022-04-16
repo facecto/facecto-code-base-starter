@@ -7,7 +7,7 @@ facecto-code-base-starter is A standard result and exception information.
 <dependency>
   <groupId>com.facecto.code</groupId>
   <artifactId>facecto-code-base-starter</artifactId>
-  <version>1.1.2</version>
+  <version>1.1.8</version>
 </dependency>
 ```
 ## Step 2 ：To turn on global error configuration, use the following annotation.
